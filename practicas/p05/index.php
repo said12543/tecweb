@@ -2,10 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Práctica 3</title>
+    <title>Práctica 5</title>
 </head>
 <body>
-    <h2>Ejercicio 1</h2>
+    <h2>Inciso 1</h2>
     <p>Determina cuál de las siguientes variables son válidas y explica por qué:</p>
     <p>$_myvar,  $_7var,  myvar,  $myvar,  $var7,  $_element1, $house*5</p>
     <?php
@@ -29,6 +29,33 @@
         echo '<li>$_element1 es válida porque inicia con guión bajo.</li>';
         echo '<li>$house*5 es inválida porque el símbolo * no está permitido.</li>';
         echo '</ul>';
+    ?>
+    <h2>Inciso  2</h2>
+    <p>Proporciona los valores de $a, $b, $c como sigue:</p>
+    <p>$a = "ManejadorSQL";</p><p>$b = 'MySQL';</p><p>$c = &$a;
+</p>
+    <?php
+        //AQUI VA MI CÓDIGO PHP
+        $a = "ManejadorSQL";
+        $b = 'MySQL';
+        $c = &$a;
+
+        print_r($a);
+        echo "<br>";
+        print_r($b);
+        echo "<br>";
+        print_r($c);
+        echo "<br><br>";
+
+        $a = "PHP server";
+        $b = &$a;
+        print_r($a);
+        echo "<br>";
+        print_r($b);
+
+        echo "<h4>Descripción:</h4>";
+        echo "<p>Antes de realizarla creeria que me saltaria algun tipo de error o que pasaría algo con la impresión de las segundas variables. Por un comentario del profesor consideré utilizar la función unset(_).</p>";
+        echo "<p>Finalmente lo que sucedio fue que el valor de las segundas variables se sobreescribio sobre las primeras y la impresión de ambas fue correcta</p>";
     ?>
 </body>
 </html>
