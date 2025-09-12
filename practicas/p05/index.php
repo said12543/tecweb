@@ -55,7 +55,7 @@
 
         echo "<h4>Descripción:</h4>";
         echo "<p>Antes de realizarla creeria que me saltaria algun tipo de error o que pasaría algo con la impresión de las segundas variables. Por un comentario del profesor consideré utilizar la función unset(_).</p>";
-        echo "<p>Finalmente lo que sucedio fue que el valor de las segundas variables se sobreescribio sobre las primeras y la impresión de ambas fue correcta</p>";
+        echo "<p>Finalmente lo que sucedio fue que el valor de las segundas variables se sobreescribio sobre las primeras y la impresión de ambas fue correcta<br>Avanzando más me di cuenta de que si era necesario limpiar mis variables, dejo el comentario como evidencia de un aprendizaje</p>";
         unset($a, $b, $c, $z);
 
     ?>
@@ -63,13 +63,7 @@
     <p>Muestra el contenido de cada variable inmediatamente después de cada asignación,
     verificar la evolución del tipo de estas variables (imprime todos los componentes de los
     arreglo):</p>
-    <p>$a = “PHP5”;</p>
-    <p>$z[] = &$a;</p>
-    <p>$b = “5a version de PHP”;</p>
-    <p>$c = $b*10;</p>
-    <p>$a .= $b;</p>
-    <p>$b *= $c;</p>
-    <p>$z[0] = “MySQL”;</p>
+    <p>$a = “PHP5”;<br>$z[] = &$a;<br>$b = “5a version de PHP”;<br>$c = $b*10;<br>$a .= $b;<br>$b *= $c;<br>$z[0] = “MySQL”;</p>
 
     <?php
         echo "a: ";
@@ -94,7 +88,7 @@
         $z[0] = "MySQL";
         var_dump($z);
         echo "<br><br>";
-        
+
     ?>
     <h2>Inciso  4</h2>
     <p>Lee y muestra los valores de las variables del ejercicio anterior, pero ahora con la ayuda de
@@ -109,5 +103,44 @@
         unset($a, $b, $c, $z);
 
     ?>
+    <h2>Inciso  5</h2>
+    <p>Dar el valor de las variables $a, $b, $c al final del siguiente script: </p>
+    <p>$a = “7 personas”;<br>$b = (integer) $a;<br> $a = “9E3”;<br>$c = (double) $a;</p>  
+    <?php
+        $a = "7 personas";
+        $b = (integer) $a;
+        $a = "9E3";
+        $c = (double) $a; 
+        echo "\$a: "; 
+        var_dump($a);
+        echo "<br>\$b: "; 
+        var_dump($b);
+        echo "<br>\$c: "; 
+        var_dump($c);
+        echo "<br>";
+        unset($a, $b, $c);
+    ?>
+    <h2>Inciso  6</h2>
+    <p>Dar y comprobar el valor booleano de las variables $a, $b, $c, $d, $e y $f y muéstralas
+    usando la función var_dump(datos).<br>Después investiga una función de PHP que permita transformar el valor booleano de $c y $e
+    en uno que se pueda mostrar con un echo:</p>
+    <p>$a = "0";<br>
+    $b = "TRUE";<br>
+    $c = FALSE;<br>
+    $d = ($a OR $b);<br>
+    $e = ($a AND $c);<br>
+    $f = ($a XOR $b);</p>
+    <?php
+        echo "\$a: " . $GLOBALS['a'] . "<br>";
+        echo "\$b: " . $GLOBALS['b'] . "<br>";
+        echo "\$c: " . $GLOBALS['c'] . "<br>";
+        echo "\$z: ";
+        print_r($GLOBALS['z']);
+        echo "<br>";
+        unset($a, $b, $c, $z);
+
+    ?>
+
+
 </body>
 </html>
