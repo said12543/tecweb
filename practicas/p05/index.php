@@ -120,7 +120,7 @@
         echo "<br>";
         unset($a, $b, $c);
     ?>
-    
+
     <h2>Inciso  6</h2>
     <p>Dar y comprobar el valor booleano de las variables $a, $b, $c, $d, $e y $f y muéstralas
     usando la función var_dump(datos).<br>Después investiga una función de PHP que permita transformar el valor booleano de $c y $e
@@ -153,6 +153,18 @@
 
     ?>
 
-
+    <h2>Inciso  7</h2>
+    <p>Usando la variable predefinida $_SERVER, determina:</p>  
+    <ol>
+        <li>La versión de Apache y PHP </li>
+        <li>El nombre del sistema operativo (servidor)</li>
+        <li>El idioma del navegador (cliente)</li>
+    </ol>
+    <?php
+        echo "Versión de PHP: " . phpversion() . "<br>";
+        echo "Version de Apache: " . $_SERVER['SERVER_SOFTWARE'] . "<br>";
+        echo "Sistema operativo (servidor): " . PHP_OS . "<br>";
+        echo "Idioma del navegador (cliente): " . $_SERVER['HTTP_ACCEPT_LANGUAGE'] . "<br>";
+    ?>
 </body>
 </html>
