@@ -35,7 +35,6 @@
     <p>$a = "ManejadorSQL";</p><p>$b = 'MySQL';</p><p>$c = &$a;
 </p>
     <?php
-        //AQUI VA MI CÓDIGO PHP
         $a = "ManejadorSQL";
         $b = 'MySQL';
         $c = &$a;
@@ -56,6 +55,41 @@
         echo "<h4>Descripción:</h4>";
         echo "<p>Antes de realizarla creeria que me saltaria algun tipo de error o que pasaría algo con la impresión de las segundas variables. Por un comentario del profesor consideré utilizar la función unset(_).</p>";
         echo "<p>Finalmente lo que sucedio fue que el valor de las segundas variables se sobreescribio sobre las primeras y la impresión de ambas fue correcta</p>";
+    ?>
+    <h2>Inciso  3</h2>
+    <p>Muestra el contenido de cada variable inmediatamente después de cada asignación,
+    verificar la evolución del tipo de estas variables (imprime todos los componentes de los
+    arreglo):</p>
+    <p>$a = “PHP5”;</p>
+    <p>$z[] = &$a;</p>
+    <p>$b = “5a version de PHP”;</p>
+    <p>$c = $b*10;</p>
+    <p>$a .= $b;</p>
+    <p>$b *= $c;</p>
+    <p>$z[0] = “MySQL”;</p>
+
+    <?php
+        $a = "PHP5";
+        var_dump($a);
+        echo "<br>";
+        $z[] = &$a;        
+        var_dump($z);
+        echo "<br>";
+        $b = "5a version de PHP";
+        var_dump($b);
+        echo "<br>";        
+        $c = $b*10;
+        var_dump($c);
+        echo "<br>";        
+        $a .= $b;
+        var_dump($a);
+        echo "<br>";       
+        $b *= $c;
+        var_dump($b);
+        echo "<br>";        
+        $z[0] = "MySQL";
+        var_dump($z);
+        echo "<br><br>";
     ?>
 </body>
 </html>
