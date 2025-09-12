@@ -120,6 +120,7 @@
         echo "<br>";
         unset($a, $b, $c);
     ?>
+    
     <h2>Inciso  6</h2>
     <p>Dar y comprobar el valor booleano de las variables $a, $b, $c, $d, $e y $f y muéstralas
     usando la función var_dump(datos).<br>Después investiga una función de PHP que permita transformar el valor booleano de $c y $e
@@ -131,13 +132,24 @@
     $e = ($a AND $c);<br>
     $f = ($a XOR $b);</p>
     <?php
-        echo "\$a: " . $GLOBALS['a'] . "<br>";
-        echo "\$b: " . $GLOBALS['b'] . "<br>";
-        echo "\$c: " . $GLOBALS['c'] . "<br>";
-        echo "\$z: ";
-        print_r($GLOBALS['z']);
-        echo "<br>";
-        unset($a, $b, $c, $z);
+        $a = "0";
+        $b = "TRUE";
+        $c = FALSE;
+        $d = ($a OR $b);
+        $e = ($a AND $c);
+        $f = ($a XOR $b);
+
+        echo "\$a: "; var_dump((bool)$a);
+        echo "<br>\$b: "; var_dump((bool)$b);
+        echo "<br>\$c: "; var_dump($c);
+        echo "<br>\$d: "; var_dump($d);
+        echo "<br>\$e: "; var_dump($e);
+        echo "<br>\$f: "; var_dump($f);
+
+        echo "<br><br>Transformar Booleanos a Strings";
+        echo "<br>\$c: ". ($c ? "true":"false". "<br>");
+        echo "\$e: ". ($e ? "true":"false". "<br>");
+        unset($a, $b, $c, $d, $e, $f);
 
     ?>
 
