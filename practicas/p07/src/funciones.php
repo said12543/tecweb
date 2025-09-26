@@ -56,20 +56,19 @@
         echo "Múltiplo encontrado: $aleatorio2 en $contador2 intentos";
     }
 
+    function ejercicio4(){
+        $arreglo = [];
+        for ($i=97; $i<=122; $i++) {
+            $arreglo[$i] = chr($i);
+        }
+
+        echo "<table border='1' cellpadding='5'>";
+        echo "<tr><th>Índice</th><th>Letra</th></tr>";
+        foreach ($arreglo as $key => $value) {
+            echo "<tr><td>$key</td><td>$value</td></tr>";
+        }
+        echo "</table>";
+    }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
 ?>

@@ -34,7 +34,7 @@
             echo $_POST["email"];
         }
     ?>
-    <h2>Ejercicio 2 - generación repetitiva</h2>
+    <h2>Ejercicio 2 - Generación repetitiva</h2>
     <?php
         echo ejercicio2();
     ?>
@@ -46,6 +46,9 @@
             echo ejercicio3($num);
         }
     ?>  
-
+    <h2>Ejercicio 4 - Tabla letras</h2>
+    <?php
+        echo ejercicio4();
+    ?>
 </body>
 </html>
