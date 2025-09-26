@@ -38,7 +38,14 @@
     <?php
         echo ejercicio2();
     ?>
-
+    <h2>Ejercicio 3 - Número aleatorio múltiplo</h2>
+   <?php
+        if(isset($_GET['numero']))
+        {
+            $num = $_GET['numero'];
+            echo ejercicio3($num);
+        }
+    ?>  
 
 </body>
 </html>

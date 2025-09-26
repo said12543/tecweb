@@ -29,7 +29,47 @@
            }
         }while($a == true);
         echo "<br>Números finales: <br>N1: $n1 N2: $n2 N3: $n3<br>";
-        echo "Generación terminada, se hicieron $cont iteraciones y se generaron $num números";
-
+        echo "Generación terminada, se hicieron $cont iteraciones y se generaron $num números<br>";
     }
+
+    function ejercicio3($num){
+        $contador = 0;
+        // Con while
+        $encontrado = false;
+        echo "Mi numero: $num";
+        while(!$encontrado){
+            $aleatorio = random_int(1, 999);
+            $contador++;
+            if($aleatorio % $num == 0){
+                $encontrado = true;
+                echo "<br>Múltiplo encontrado: $aleatorio en $contador intentos<br>";
+            }
+        }
+
+        // Con do-while
+        $contador2 = 0;
+        do{
+            $aleatorio2 = random_int(1, 999);
+            $contador2++;
+        }while($aleatorio2 % $num != 0);
+
+        echo "Múltiplo encontrado: $aleatorio2 en $contador2 intentos";
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
 ?>
