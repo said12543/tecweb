@@ -50,5 +50,53 @@
     <?php
         echo ejercicio4();
     ?>
+    <h2>Ejercicio 5 - Sexo y Edad</h2>
+        <form method="post">
+            Edad: <input type="number" name="edad"><br>
+            Sexo: 
+            <select name="sexo">
+                <option value="femenino">Femenino </option>
+                <option value="masculino">Masculino </option>
+            </select><br>
+            <input type="submit" value="Enviar">
+        </form>
+    <?php
+        if(isset($_POST["edad"]) && isset($_POST["sexo"])){
+            echo ejercicio5($_POST["edad"], $_POST["sexo"]);
+        }
+    ?>
+    
+
+<h2>Ejercicio 6 - Parque Vehicular</h2>
+    <p>Consulta información de vehículos registrados. Formato de matrícula: LLLNNNN (ej: UBN6338)</p>
+    
+    <form method="post">
+        <h4>Consultar por Matrícula:</h4>
+        Matrícula: <input type="text" name="matricula" placeholder="Ej: UBN6338" 
+                         pattern="[A-Za-z]{3}[0-9]{4}" 
+                         title="Formato: 3 letras seguidas de 4 números">
+        <input type="submit" name="consultar_matricula" value="Buscar Vehículo">
+    </form>
+
+    <form method="post">
+        <h4>Ver todos los vehículos:</h4>
+        <input type="submit" name="mostrar_todos" value="Mostrar Parque Vehicular Completo">
+    </form>
+
+    <?php
+        if(isset($_POST["consultar_matricula"]) && isset($_POST["matricula"])){
+            $matricula = $_POST["matricula"];
+            if(!empty($matricula)){
+                echo ejercicio6($matricula);
+            } else {
+                echo "<div style='color: red;'>Por favor ingrese una matrícula válida.</div>";
+            }
+        }
+
+        if(isset($_POST["mostrar_todos"])){
+            echo ejercicio6(null, true);
+        }
+    ?>
+
 </body>
 </html>
