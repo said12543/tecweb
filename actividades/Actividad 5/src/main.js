@@ -1,6 +1,5 @@
 
-function getDatos()
-{
+function getDatos(){
     var nombre = prompt("Nombre: ", "");
 
     var edad = prompt("Edad: ", 0);
@@ -11,12 +10,12 @@ function getDatos()
     var div2 = document.getElementById('edad');
     div2.innerHTML = '<h3> Edad: '+edad+'</h3>';
 }
-function ejemplo1_pag8()
-{
+
+function ejemplo1_pag8(){
     document.write('Hola Mundo');
 }
-function ejemplo2_pag6()
-{
+
+function ejemplo2_pag6(){
     var nombre = 'Juan';
     var edad = 10;
     var altura = 1.92;
@@ -29,8 +28,8 @@ function ejemplo2_pag6()
     document.write( '<br>' );
     document.write( casado );
 }
-function ejemplo3_pag12()
-{
+
+function ejemplo3_pag12(){
     var nombre;
     var edad;
     nombre = prompt('Ingresa tu nombre:', '');
@@ -41,8 +40,8 @@ function ejemplo3_pag12()
     document.write(edad);
     document.write(' años');
 }
-function ejemplo4_pag3()
-{
+
+function ejemplo4_pag3(){
     var valor1;
     var valor2;
     valor1 = prompt('Introducir primer número:', '');
@@ -54,4 +53,14 @@ function ejemplo4_pag3()
     document.write('<br>');
     document.write('El producto es ');
     document.write(producto);
+}
+
+function ejemplo5_pag8(){
+    var nombre;
+    var nota;
+    nombre = prompt('Ingresa tu nombre:', '');
+    nota = prompt('Ingresa tu nota:', '');
+    if (nota>=4) {
+        document.write(nombre+' esta aprobado con un '+nota);
+    }
 }
