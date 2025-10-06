@@ -125,3 +125,16 @@ function ejemplo8_pag18(){
         default:document.write('debe ingresar un valor comprendido entre 1 y 5.');
     }
 }
+
+function ejemplo9_pag21(){
+    var col;
+    col = prompt('Ingresa el color con que quierar pintar el fondo de la ventana (rojo, verde, azul)' , '' );
+    switch (col) {
+        case 'rojo': document.bgColor='#ff0000';
+        break;
+        case 'verde': document.bgColor='#00ff00';
+        break;
+        case 'azul': document.bgColor='#0000ff';
+        break;
+    }
+}
