@@ -148,3 +148,43 @@ function ejemplo10_pag5(){
         x=x+1;
     }
 }
+
+function ejemplo11_pag6(){
+    var x=1;
+    var suma=0;
+    var valor;
+    while (x<=5){
+        valor = prompt('Ingresa el valor:', '');
+        valor = parseInt(valor);
+        suma = suma+valor;
+        x = x+1;
+    }
+    document.write('La suma de los valores es '+suma+'<br>');
+}
+
+function  ejemplo12_pag12(){
+    var valor;
+    do{
+        valor = prompt('Ingresa un valor entre 0 y 999:', '');
+        valor = parseInt(valor);
+        document.write('El valor '+valor+' tiene' );
+        if (valor<10)
+            document.write('Tiene 1 dígitos')
+        else
+        if (valor<100) {
+            document.write('Tiene 2 dígitos');
+        }
+        else {
+            document.write('Tiene 3 dígitos');
+        }
+        document.write('<br>');
+    }while(valor!=0);
+}
+
+function ejemplo13_pag16(){
+    var f;
+    for(f=1; f<=10; f++)
+    {
+        document.write(f+ "");
+    }
+}
