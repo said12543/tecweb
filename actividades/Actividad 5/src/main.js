@@ -138,3 +138,13 @@ function ejemplo9_pag21(){
         break;
     }
 }
+
+function ejemplo10_pag5(){
+    var x;
+    x=1;
+    while (x<=100) {
+        document.write(x);
+        document.write('<br>');
+        x=x+1;
+    }
+}
