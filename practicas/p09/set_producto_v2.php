@@ -28,8 +28,8 @@ if ($result->num_rows > 0) {
     echo '<p><strong>Modelo:</strong> ' . $modelo . '</p>';
     echo '<p><a href="formulario_productos.html">Volver al formulario</a></p>';
 } else {    
-    $sql = "INSERT INTO productos VALUES (null, '{$nombre}', '{$marca}', '{$modelo}', {$precio}, '{$detalles}', {$unidades}, '{$imagen}', 0)";
-    
+$sql = "INSERT INTO productos (nombre, marca, modelo, precio, detalles, unidades, imagen)
+        VALUES ('{$nombre}', '{$marca}', '{$modelo}', {$precio}, '{$detalles}', {$unidades}, '{$imagen}')";    
     if ($link->query($sql)) {
         echo '<h1>Producto Registrado</h1>';
         echo '<p>Producto insertado con ID: ' . $link->insert_id . '</p>';
