@@ -28,7 +28,7 @@ if ($result->num_rows > 0) {
     echo '<p><strong>Modelo:</strong> ' . $modelo . '</p>';
     echo '<p><a href="formulario_productos.html">Volver al formulario</a></p>';
 } else {    
-    $sql = "INSERT INTO productos VALUES (null, '{$nombre}', '{$marca}', '{$modelo}', {$precio}, '{$detalles}', {$unidades}, '{$imagen}')";
+    $sql = "INSERT INTO productos VALUES (null, '{$nombre}', '{$marca}', '{$modelo}', {$precio}, '{$detalles}', {$unidades}, '{$imagen}', 0)";
     
     if ($link->query($sql)) {
         echo '<h1>Producto Registrado</h1>';
@@ -43,7 +43,8 @@ if ($result->num_rows > 0) {
         echo '<li><strong>Detalles:</strong> ' . $detalles . '</li>';
         echo '<li><strong>Unidades:</strong> ' . $unidades . '</li>';
         echo '<li><strong>Imagen:</strong> ' . $imagen . '</li>';
-        echo '</ul>';
+        echo '<li><strong>Eliminado:</strong> 0 (activo)</li>';
+		echo '</ul>';
         echo '<p><a href="formulario_productos.html">Registrar otro producto</a></p>';
     } else {
         echo '<h1>Error</h1>';
