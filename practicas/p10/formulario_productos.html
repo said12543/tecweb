@@ -1,0 +1,66 @@
+<!DOCTYPE html >
+<html>
+
+  <head>
+    <meta charset="utf-8" >
+    <title>Registro de productos</title>
+    <style type="text/css">
+      ol, ul { 
+      list-style-type: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Registro de Productos</h1>
+
+    <p>A continuación se encuentran los campos requeridos para ingresar un nuevo prodcuto a la base de datos</p>
+
+    <form id="registroProd" action="http://localhost/tecweb/practicas/p09/set_producto_v2.php" method="post">
+
+    <h2>Información del Producto</h2>
+
+      <fieldset>
+        <legend>Información Personal</legend>
+
+        <ul>
+          <li><label for="nombre">Nombre del producto:</label><br>
+          <input type="text" name="nombre" id="nombre" pattern="{3,100}" required title="Máximo 100 caracteres"></li>
+
+          <li><label for="marca">Marca:</label><br>
+          <select name="marca" id="marca" required>
+            <option value="Samsung">Samsung</option>
+            <option value="Apple">Apple</option>
+            <option value="Xiaomi">Xiaomi</option>
+            <option value="Oppo">Oppo</option>
+            <option value="Huawei">Huawei</option>
+            <option value="Motorola">Motorola</option>
+          </select>
+          </li>
+
+          <li><label for="modelo">Modelo:</label><br>
+          <input type="text" name="modelo" id="modelo" pattern="[A-Za-z0-9\- ]{1,25}" required title="Maximo 25 caracteres. Letras, numeros o guiones"></li>
+
+          <li><label for="precio">Precio:</label><br>
+          <input type="number" name="precio" id="precio" min="100" required title="Precio mayor o igual a 100"></li>          
+
+          <li><label for="detalles">Detalles</label><br>
+          <textarea name="detalles" rows="3" cols="19" id="detalles" maxlength="250" placeholder="No más de 250 caracteres de longitud"></textarea></li>
+
+          <li><label for="unidades">Unidades:</label><br>
+          <input type="number" name="unidades" id="unidades" min="0" required title="Las unidades minimas deben ser mayores a 0"></li>          
+
+          <li><label for="imagen">Nombre archivo imagen:</label><br>
+          <input type="text" name="imagen" id="imagen" value="img_def.png"></li>          
+
+        </ul>
+      </fieldset>
+
+      <p>
+        <input type="submit" value="Registrar">
+        <input type="reset">
+      </p>
+
+    </form>
+  </body>
+</html>
