@@ -63,9 +63,9 @@ $(document).ready(function(){
         $('#product-result').show();
         
         if (isValid) {
-            $('#container').html('<li style="list-style: none;">' + message + '</li>');
+            $('#container').html('<li style="list-style: none;">' + '+' + message + '+' + '</li>');
         } else {
-            $('#container').html('<li style="list-style: none;">' + message + '</li>');
+            $('#container').html('<li style="list-style: none;">' + '-' + message + '-' + '</li>');
         }
     }
 
@@ -85,8 +85,30 @@ $(document).ready(function(){
             return;
         }
         
-        showValidation('nombre', 'Nombre válido', true);
-        validationStatus.nombre = true;
+        // Validación Asincrona
+            $.ajax({
+            url: './backend/product-name.php',
+            type: 'POST',
+            data: {
+                nombre: nombre,
+                id: $('#productId').val() 
+            },
+            success: function(response) {
+                const data = JSON.parse(response);
+                
+                if (data.exists) {
+                    showValidation('nombre', 'Este nombre de producto ya existe en la base de datos', false);
+                    validationStatus.nombre = false;
+                } else {
+                    showValidation('nombre', 'Nombre válido y disponible', true);
+                    validationStatus.nombre = true;
+                }
+            },
+            error: function() {
+                showValidation('nombre', 'Error al validar el nombre', false);
+                validationStatus.nombre = false;
+            }
+        });    
     });
 
     // VALIDACIÓN 2: MARCA (requerida, debe seleccionarse)
