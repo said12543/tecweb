@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos por Tope</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script>
+        function cargarProductos() {
+            const tope = new URLSearchParams(window.location.search).get('tope');
+            
+            if (!tope) {
+                alert('Parámetro "tope" no detectado');
+                return;
+            }
+            
+            document.getElementById('topeTexto').textContent = tope;
+            
+            fetch('get_productos_xhtml_v2.php?tope=' + tope)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.length === 0) {
+                        alert('No se encontraron productos con ese tope de unidades');
+                        return;
+                    }
+                    
+                    let html = '';
+                    data.forEach(producto => {
+                        html += `
+                            <tr>
+                                <th scope="row">${producto.id}</th>
+                                <td>${producto.nombre}</td>
+                                <td>${producto.marca}</td>
+                                <td>${producto.modelo}</td>
+                                <td>${producto.precio}</td>
+                                <td>${producto.unidades}</td>
+                                <td>${producto.detalles}</td>
+                                <td><img src="${producto.imagen}" width="100" alt="Producto"></td>
+                                <td>
+                                    <button class="btn btn-primary" onclick="modificarProducto('${producto.id}','${escapeHtml(producto.nombre)}','${escapeHtml(producto.marca)}','${escapeHtml(producto.modelo)}','${producto.precio}','${producto.unidades}','${escapeHtml(producto.detalles)}','${escapeHtml(producto.imagen)}')">
+                                        Modificar
+                                    </button>
+                                </td>
+                            </tr>
+                        `;
+                    });
+                    
+                    document.getElementById('productosBody').innerHTML = html;
+                    document.getElementById('tablaProductos').style.display = 'table';
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Error al cargar productos');
+                });
+        }
+        
+        function escapeHtml(text) {
+            const map = {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#039;'
+            };
+            return text.replace(/[&<>"']/g, m => map[m]);
+        }
+        
+        function modificarProducto(id, nombre, marca, modelo, precio, unidades, detalles, imagen) {
+            const urlForm = "http://localhost/tecweb/practicas/p10/formulario_productos_v2.php";
+            const params = "?id=" + encodeURIComponent(id) + 
+                         "&nombre=" + encodeURIComponent(nombre) + 
+                         "&marca=" + encodeURIComponent(marca) + 
+                         "&modelo=" + encodeURIComponent(modelo) + 
+                         "&precio=" + encodeURIComponent(precio) + 
+                         "&unidades=" + encodeURIComponent(unidades) + 
+                         "&detalles=" + encodeURIComponent(detalles) + 
+                         "&imagen=" + encodeURIComponent(imagen);
+            
+            window.location.href = urlForm + params;
+        }
+        
+        window.onload = cargarProductos;
+    </script>
+</head>
+<body>
+    <div class="container mt-4">
+        <h3>PRODUCTOS CON UNIDADES MENORES O IGUALES A <span id="topeTexto"></span></h3>
+        <br/>
+        
+        <table class="table" id="tablaProductos" style="display:none;">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Marca</th>
+                    <th scope="col">Modelo</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Unidades</th>
+                    <th scope="col">Detalles</th>
+                    <th scope="col">Imagen</th>
+                    <th scope="col">Modificar</th>
+                </tr>
+            </thead>
+            <tbody id="productosBody">
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
